@@ -1,6 +1,7 @@
 import time
 import requests
 
+# 请求头，这是是从chrome直接复制过来的，代码会自动格式化，请求头建议换成自己的
 chrome_header = '''
 :authority: blog.csdn.net
 :method: GET
@@ -20,7 +21,7 @@ sec-fetch-site: same-origin
 user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36 Edg/104.0.1293.47
 '''
 
-
+# 这里修改自己关注的文章关键字
 my_favorite_type = '''
 卷积
 深度学习
@@ -29,6 +30,10 @@ opencv
 android
 java
 '''
+
+# 这里修改每页获取多少个文章
+url = 'https://blog.csdn.net/phoenix/web/blog/hot-rank?page=0&pageSize=50&type='
+
 
 def chromeHeaderFormat(chrome_header):
     header_param_list = chrome_header.split('\n')
@@ -49,18 +54,7 @@ def chromeHeaderFormat(chrome_header):
     return header_dict
 
 
-url = 'https://blog.csdn.net/phoenix/web/blog/hot-rank?page=0&pageSize=50&type='
-params = {
-    'ps': 20,
-    'keyword': '',
-    'order': 'mtime',
-    'type': 0,
-    'tid': 0,
-    'platform': 'web',
-    'jsonp': 'jsonp',
-    'pn': 1,
-    'media_id': 140538082
-}
+
 
 headers = chromeHeaderFormat(chrome_header)
 
